@@ -1,31 +1,70 @@
-# Sharemiam
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.24.
+# ShareMiam
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+IF11 / LO10
 
-## Code scaffolding
+## Technologies 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+- [Angular](https://angular.io/)
+- [ExpressJS](http://expressjs.com/)
+- [CouchDB](http://couchdb.apache.org/)
 
-## Build
+## Installation du projet
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+- Cloner le répertoire
+```sh
+$ git clone https://github.com/anta-kader/sharemiam
+```
 
-## Running unit tests
+- Installer les modules Node dans le projet
+```sh
+$ cd sharemiam/
+$ npm install
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Copier le fichier .env.example en .env puis renseigner les valeurs demander
 
-## Running end-to-end tests
+- Lancer le projet 
+```sh
+$ node server.js
+```
+Vous trouverez le site à l'adresse suivante : http://localhost:3000/
+Vous avez accès au back à l'adresse suivante : http://localhost:3000/api
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+##Structure du projet
 
-## Deploying to Github Pages
+- Front - angular : src/
+- Back - express : server/ 
 
-Run `ng github-pages:deploy` to deploy to Github Pages.
+## Bonnes pratiques
 
-## Further help
+* Ne pas faire de modification directement sur la branche master !
+* Créer sa propre branche comme ci-dessous puis faire de merge request.
+* Penser à faire un pull de la branche master régulièrement
 
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```sh
+$ git checkout -b nom_de_votre_branche
+```
+> Cette commande vous permettra de créer votre branche et vous déplacer dessus
+
+```sh
+$ git push origin nom_de_votre_branche
+```
+> Avec cette commande, faites un push sur votre branche (si elle n'existe pas dans le repos, elle sera automatiquement crée)
+
+## Services utilisés
+
+* [Auht0](https://auth0.com/)
+
+## Bibliothèque ajoutées 
+
+* [Nano CouchDB](https://github.com/dscape/nano)
+
+## Références
+
+* [Documentation Git](https://git-scm.com/documentation)
+* [Tutoriel MEAN App with Angular 2](https://scotch.io/tutorials/mean-app-with-angular-2-and-the-angular-cli)
+* [Tutoriel Auth0 - Express](https://auth0.com/docs/quickstart/webapp/nodejs/01-login)
+
+
+
