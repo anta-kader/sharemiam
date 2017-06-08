@@ -59,7 +59,8 @@ $ git push origin nom_de_votre_branche
 ## Bibliothèque ajoutées 
 
 * [Nano](https://github.com/dscape/nano) - CouchDB
-* [Auth0.js](https://github.com/auth0/auth0.js) - Auth0
+* [Auth0.js](https://github.com/auth0/auth0.js) - 
+* [Bootstrap 3](http://getbootstrap.com/)
 
 ## Références
 
