@@ -58,7 +58,7 @@ $ git push origin nom_de_votre_branche
 
 ## Bibliothèque ajoutées 
 
-* [Nano CouchDB](https://github.com/dscape/nano)
+* [Nano](https://github.com/dscape/nano) - CouchDB
 
 ## Références
 
