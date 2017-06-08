@@ -31,7 +31,7 @@ $ node server.js
 Vous trouverez le site à l'adresse suivante : http://localhost:3000/
 Vous avez accès au back à l'adresse suivante : http://localhost:3000/api
 
-##Structure du projet
+## Structure du projet
 
 - Front - angular : src/
 - Back - express : server/ 
