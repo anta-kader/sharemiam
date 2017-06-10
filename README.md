@@ -66,7 +66,8 @@ $ git push origin nom_de_votre_branche
 
 * [Documentation Git](https://git-scm.com/documentation)
 * [Tutoriel MEAN App with Angular 2](https://scotch.io/tutorials/mean-app-with-angular-2-and-the-angular-cli)
-* [Tutoriel Auth0 - Express](https://auth0.com/docs/quickstart/webapp/nodejs/01-login)
+* [Tutoriel Auth0 - Angular](https://auth0.com/docs/quickstart/spa/angularjs/01-login)
+* [Tutoriel Auth0 - Express API](https://auth0.com/docs/quickstart/backend/nodejs/00-getting-started)
 
 
 

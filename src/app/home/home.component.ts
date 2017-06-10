@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthHttp }                         from 'angular2-jwt';
 
 @Component({
   selector: 'home',
@@ -6,10 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 
-export class HomeComponent {
+export class HomeComponent implements OnInit{
+	thing : string;
 
-	constructor() {
-   	
+	constructor(private authHttp: AuthHttp) {}
+
+	ngOnInit(){
+		this.authHttp.get('http://localhost:3000/api')
+		    .subscribe(
+		      data => this.thing = JSON.stringify(data),
+		      err => console.log(err),
+		      () => console.log('Request Complete')
+		    );
 	}
+
   
 }

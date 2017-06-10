@@ -11,17 +11,17 @@ export class AuthService {
     clientID: AUTH_CONFIG.clientID,
     domain: AUTH_CONFIG.domain,
     responseType: 'token id_token',
-    audience: 'https://${AUTH_CONFIG.domain}/userinfo',
+    audience: 'http://localhost:3000/api',
     redirectUri: 'http://localhost:3000/home',      
-    scope: 'openid'
+    scope: 'write:food'
   });
 
   constructor(public router: Router) {}
 
   public login(): void {
     this.auth0.authorize({
-      audience: 'https://${AUTH_CONFIG.domain}/userinfo',
-      scope: 'openid',
+      audience: 'http://localhost:3000/api',
+      scope: 'write:food',
       responseType: 'token id_token',
       redirectUri: 'http://localhost:3000/home',
     });
