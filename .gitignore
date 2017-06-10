@@ -38,3 +38,6 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
+
+#Environment Vars
+/src/app/authentication/auth0-variables.ts
