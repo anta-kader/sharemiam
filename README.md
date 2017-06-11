@@ -56,11 +56,12 @@ $ git push origin nom_de_votre_branche
 
 * [Auht0](https://auth0.com/)
 
-## Bibliothèque ajoutées 
+## Composants ajoutés 
 
 * [Nano](https://github.com/dscape/nano) - CouchDB
-* [Auth0.js](https://github.com/auth0/auth0.js) - 
+* [Auth0.js](https://github.com/auth0/auth0.js) 
 * [Bootstrap 3](http://getbootstrap.com/)
+* [Angular Google Maps](https://angular-maps.com/) - Google Maps API avec Angular 2
 
 ## Références
 
