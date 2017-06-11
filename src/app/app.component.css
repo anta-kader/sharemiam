@@ -1,0 +1,7 @@
+.navbar-nav a, .navbar-brand {	
+	color: black;
+}
+.navbar-brand {
+	font-size: 2em;
+	font-family: 'Amita', cursive;
+}
