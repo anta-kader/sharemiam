@@ -30,17 +30,17 @@ const checkJwt = jwt({
   algorithms: ['RS256']
 });
 
-const jwtAuthz = require('express-jwt-authz');
-//const checkScopes = jwtAuthz([ 'write:food' ]);
-
-
 var db_handler = require('../data/db_handler');
 
 
 /* GET api listing. */
-router.get('/', checkJwt, /*checkScopes,*/ (req, res) => {
+router.get('/', checkJwt, (req, res) => {
   res.send('api works');
-  db_handler.add();
+  db_handler.getAllFridges();
+});
+
+router.get('/fridges_with_last_items', checkJwt, (req, res) => {
+  return db_handler.getAllFridgesWithLastItemAdded();
 });
 
 module.exports = router;

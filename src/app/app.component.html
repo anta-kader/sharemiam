@@ -8,10 +8,10 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li role="presentation">
-          <a routerLink="/">Cuisine</a>
+          <a routerLink="/cook">Cuisine</a>
         </li>
         <li role="presentation">
-          <a routerLink="/">Frigos</a>
+          <a routerLink="/fridge/map">Frigos</a>
         </li>
       </ul>
 
@@ -21,9 +21,9 @@
             Compte  <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li> <a href="#" *ngIf="!auth.isAuthenticated()" (click)="auth.login()">Connexion </a></li>
-            <li> <a href="#" *ngIf="!auth.isAuthenticated()" (click)="auth.signup()">Inscription </a></li>            
-            <li> <a href="#" *ngIf="auth.isAuthenticated()"  (click)="auth.logout()">Déconnexion </a></li>
+            <li> <a *ngIf="!auth.isAuthenticated()" (click)="auth.login()">Sign In/Up </a></li>
+            <li> <a *ngIf="auth.isAuthenticated()"  routerLink="/profile"> {{ profile?.nickname }} </a></li>           
+            <li> <a *ngIf="auth.isAuthenticated()"  (click)="auth.logout()">Déconnexion </a></li>
           </ul>
           </li>
         </ul>        

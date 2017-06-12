@@ -42,3 +42,4 @@ Thumbs.db
 #Environment Vars
 /src/app/authentication/auth0-variables.ts
 .env
+/src/app/variables.ts

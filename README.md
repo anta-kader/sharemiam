@@ -7,7 +7,6 @@ IF11 / LO10
 
 - [Angular](https://angular.io/)
 - [ExpressJS](http://expressjs.com/)
-- [CouchDB](http://couchdb.apache.org/)
 
 ## Installation du projet
 
@@ -58,10 +57,10 @@ $ git push origin nom_de_votre_branche
 
 ## Composants ajoutés 
 
-* [Nano](https://github.com/dscape/nano) - CouchDB
+* [MySQL](https://github.com/mysqljs/mysql)
 * [Auth0.js](https://github.com/auth0/auth0.js) 
 * [Bootstrap 3](http://getbootstrap.com/)
-* [Angular Google Maps](https://angular-maps.com/) - Google Maps API avec Angular 2
+* [Angular Google Maps](https://angular-maps.com/api-docs/agm-core/index.html) - Google Maps API avec Angular 2
 
 ## Références
 

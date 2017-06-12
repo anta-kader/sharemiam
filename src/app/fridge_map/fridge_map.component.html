@@ -1,0 +1,17 @@
+<div class="container-fluid">
+	<h1>{{ title }}</h1>
+
+	<div class="row">
+		<agm-map [latitude]="lat" [longitude]="lng" [zoom]=13>
+		  <agm-marker [latitude]="lat_utt" [longitude]="lng_utt">
+		  	<agm-info-window>Foyer - UTT</agm-info-window>
+		  </agm-marker>
+		  <agm-marker [latitude]="lat_esc" [longitude]="lng_esc">
+		  	<agm-info-window>BDE - ESC</agm-info-window>
+		  </agm-marker>
+		  <agm-marker [latitude]="lat_iut" [longitude]="lng_iut">
+		  	<agm-info-window>Cafet - IUT</agm-info-window>
+		  </agm-marker>
+		</agm-map>
+	</div>
+</div>

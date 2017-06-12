@@ -9,8 +9,14 @@
 import { ModuleWithProviders }                                    from '@angular/core';
 import { Routes, RouterModule }                                   from '@angular/router';
 
-//ACCUEIL
+//HOME
 import { HomeComponent }                                          from './home/home.component';
+
+//MAP
+import { FridgeMapComponent }                                     from './fridge_map/fridge_map.component';
+
+//PROFILE
+import { ProfileComponent }                                       from './authentication/profile.component';
 
 // 404
 import { NotFoundComponent }                                      from './not_found/not_found.component';
@@ -19,7 +25,7 @@ import { NotFoundComponent }                                      from './not_fo
 export const routing: Routes = [
 
 /***** 
-************************** ACCUEIL
+************************** HOME
 *****/ 
   {
     path: 'home',
@@ -30,6 +36,22 @@ export const routing: Routes = [
     redirectTo: '/home',
     pathMatch: 'full'
   },
+
+/***** 
+************************** FRIDGES
+*****/ 
+  {
+    path: 'fridge/map',
+    component: FridgeMapComponent,
+  }, 
+
+/***** 
+************************** PROFILE
+*****/ 
+  {
+    path: 'profile',
+    component: ProfileComponent,
+  }, 
 
 /***** 
 ************************** NOTFOUND

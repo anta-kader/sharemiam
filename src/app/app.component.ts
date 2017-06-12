@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './authentication/auth.service';
 
 @Component({
@@ -7,10 +7,22 @@ import { AuthService } from './authentication/auth.service';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  constructor(public auth: AuthService) {
-  	auth.handleAuthentication();
-  }
+	profile: any;
+
+	constructor(public auth: AuthService) {
+		auth.handleAuthentication();
+	}
+
+	ngOnInit() 
+	{
+	    if (this.auth.userProfile) 
+	      	this.profile = this.auth.userProfile;
+	    else 
+	      	this.auth.getProfile((err, profile) => {
+	        	this.profile = profile;
+	      	});
+	}
   
 }

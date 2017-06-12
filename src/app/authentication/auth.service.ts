@@ -6,6 +6,7 @@ import { AUTH_CONFIG } from './auth0-variables';
 
 @Injectable()
 export class AuthService {
+  userProfile: any;
 
   private auth0 = new auth0.WebAuth({
     clientID: AUTH_CONFIG.clientID,
@@ -13,7 +14,7 @@ export class AuthService {
     responseType: 'token id_token',
     audience: 'http://localhost:3000/api',
     redirectUri: 'http://localhost:3000/home',      
-    scope: 'write:food'
+    scope: 'openid profile'
   });
 
   constructor(public router: Router) {}
@@ -21,12 +22,27 @@ export class AuthService {
   public login(): void {
     this.auth0.authorize({
       audience: 'http://localhost:3000/api',
-      scope: 'write:food',
+      scope: 'openid profile',
       responseType: 'token id_token',
       redirectUri: 'http://localhost:3000/home',
     });
   } 
 
+  public getProfile(cb): void {
+    const accessToken = localStorage.getItem('access_token');
+    if (!accessToken) {
+      throw new Error('Access token must exist to fetch profile');
+    }
+
+    const self = this;
+    this.auth0.client.userInfo(accessToken, (err, profile) => {
+      if (profile) {
+        self.userProfile = profile;
+      }
+      cb(err, profile);
+    });
+  }
+  
   public handleAuthentication(): void {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
