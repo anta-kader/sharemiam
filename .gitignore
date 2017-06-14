@@ -41,5 +41,6 @@ Thumbs.db
 
 #Environment Vars
 /src/app/authentication/auth0-variables.ts
+/src/app/item/imgur-variables.ts
 .env
 /src/app/variables.ts

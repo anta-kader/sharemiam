@@ -1,0 +1,30 @@
+<h1> Faites un don </h1>
+
+<form #newItemForm="ngForm">
+	<label>Qu'est-ce que vous nous donnez ? * </label>
+	<input class="form-control" type="text" placeholder="Une pomme !" required name="name" [(ngModel)]="name">
+
+	<label for="image">Ajoutez la photo ! * </label>
+	<input class="form-control" type="text" placeholder="Le lien de votre image" required name="name" [(ngModel)]="picture">
+	<!--<input class="form-control" id="image" type="file" name="pic" accept="image/*" name="picture" (change)="fileEvent($event)"required>-->
+
+
+	<label>Où voulez-vous le mettre ? *</label>
+	<select class="form-control" name="fridge"  [(ngModel)]="fridge_id">
+		<option *ngFor="let elt of fridges" [value]=elt.id>{{elt.name}}</option>
+	</select>
+
+	<label>Une date de péremption ?</label>
+	<my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="peremption_date"></my-date-picker>
+
+  	<button type="submit" (click)="submit()">Donner</button>
+</form>
+
+<p>*obligatoire</p>
+
+<div class="alert alert-success" role="alert"> 
+	<strong>Merci !</strong> Votre don a bien été pris en compte ;) -- <a routerLink="/home">Fermer la fenêtre</a> 
+</div>
+<div class="alert alert-danger" role="alert"> 
+	<strong>Oops !</strong> Une erreur est survenue, veuillez réessayer ultérieurement.
+</div>

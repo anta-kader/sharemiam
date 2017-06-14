@@ -19,6 +19,10 @@ import { ProfileComponent }                           from './authentication/pro
 import { HomeComponent }                              from './home/home.component';
 import { NotFoundComponent }                          from './not_found/not_found.component';
 import { FridgeMapComponent }                         from './fridge_map/fridge_map.component';
+import { AddItemComponent }                           from './items/add_item.component';
+import { ItemService }                                from './items/item.service';
+import { FridgeService }                              from './fridge/fridge.service';
+import { MyDatePickerModule }                         from 'mydatepicker';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -33,6 +37,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AppComponent,
     FridgeMapComponent,
     HomeComponent,
+    AddItemComponent,
     NotFoundComponent,
     ProfileComponent
   ],
@@ -43,10 +48,13 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     RouterModule.forRoot(routing/*, { useHash: true }*/),
     AgmCoreModule.forRoot({
       apiKey: GM_API_KEY
-    })
+    }),
+    MyDatePickerModule
   ],
   providers: [
       AuthService,
+      FridgeService,
+      ItemService,
       {
         provide: AuthHttp,
         useFactory: authHttpServiceFactory,

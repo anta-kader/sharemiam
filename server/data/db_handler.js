@@ -11,45 +11,43 @@ var connection = mysql.createConnection({
 
 module.exports = {
 
-	getAllFridges : function(){
+	getAllFridges : function(res){
 		connection.connect();
 		connection.query('SELECT * FROM fridges', function(err, rows, fields) {
-		  if (err) throw err;
-		  console.log(JSON.stringify(rows[0]));
+		  	if (err) throw (err);
+		  	res.setHeader('Content-Type', 'application/json');
+		  	res.json(JSON.stringify(rows));
 		});
 		connection.end();
 	},
-	getAllFridgesWithLastItemAdded : function() {
+	getAllFridgesWithLastItemAdded : function(res) {
 		connection.connect();
-		connection.query('SELECT * FROM fridges', function(err, rows, fields) {
-		  	if (err) 
-		  		return "Error";
-		  	else {
-			  	var last_items = [];
-			  	var rows_length = rows.size();
-				for(var i = 0; i < rows_length; i++) {
-					connection.query('SELECT picture, MAX(given_date) as date FROM items WHERE fridge_id = ? AND state = true', [elt.id], function(err, item_rows, fields) {
-						if (err) 
-			  				return "Error";
-			  			else
-			  				last_items.push(item_rows[0]);
-				  	});
-				}
-				console.log(JSON.stringify(last_items));
-			}
+		//'SELECT f.name AS fridge_name, f.emplacement_name, f.long, f.lat, i.name AS item_name, i.picture, MAX(i.given_date) FROM fridges f, items i WHERE f.id = i.fridge_id AND i.state = true', function(err, rows, fields) {
+		connection.query('SELECT * from fridges f, (SELECT MAX(given_date), id as item_id, name, fridge_id, picture FROM items GROUP BY fridge_id, id) last_items WHERE last_items.fridge_id = f.id', function(err, rows, fields) {
+		  	if (err) throw (err);
+		  	res.setHeader('Content-Type', 'application/json');
+		  	res.json(JSON.stringify(rows));
 		});
 		connection.end();
 	},
-	getFridgeContent : function(fridge_id){
-
+	getFridgeContent : function(res, fridge_id){
+		connection.connect();
+		connection.query('SELECT * FROM items WHERE fridge_id = ? AND state = true', [fridge_id], function(err, rows, fields) {
+		  	if (err) throw (err);
+		  	res.setHeader('Content-Type', 'application/json');
+		  	res.json(JSON.stringify(rows));
+		});
+		connection.end();
 	},
-	addItemToFridge : function(fridge_id, user_id, item) {
-		var new_item = {name: item.name, picture: item.picture, given_date: item.given_date, 
-			expiration_date: item.expiration_date, fridge_id: fridge_id, user_id: user_id};
+	addItem : function(res, request_values) {
+		connection.connect();
+		var new_item = {name: request_values.name, picture: request_values.picture,	expiration_date: request_values.expiration_date, 
+						fridge_id: request_values.fridge_id, user_id: request_values.user_id};
 		connection.query('INSERT INTO items SET ?', new_item, function (error, results, fields) {
 		  	if (error) throw error;
 		  	console.log(result.insertId);
 		});
+		connection.end();
 	},
 	setFridgeItemGone : function(fridge_id, item_id) {
 

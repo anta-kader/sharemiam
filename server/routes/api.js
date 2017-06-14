@@ -35,12 +35,19 @@ var db_handler = require('../data/db_handler');
 
 /* GET api listing. */
 router.get('/', checkJwt, (req, res) => {
-  res.send('api works');
-  db_handler.getAllFridges();
+  res.send('The API works :D');
+});
+
+router.get('/fridges', checkJwt, (req, res) => {
+  db_handler.getAllFridges(res);
 });
 
 router.get('/fridges_with_last_items', checkJwt, (req, res) => {
-  return db_handler.getAllFridgesWithLastItemAdded();
+  db_handler.getAllFridgesWithLastItemAdded(res);
+});
+
+router.post('/items', function (req, res) {
+  db_handler.addItem(res, req.body);
 });
 
 module.exports = router;

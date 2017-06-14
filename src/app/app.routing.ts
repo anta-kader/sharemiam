@@ -12,6 +12,8 @@ import { Routes, RouterModule }                                   from '@angular
 //HOME
 import { HomeComponent }                                          from './home/home.component';
 
+import { AddItemComponent }                                          from './items/add_item.component';
+
 //MAP
 import { FridgeMapComponent }                                     from './fridge_map/fridge_map.component';
 
@@ -43,6 +45,14 @@ export const routing: Routes = [
   {
     path: 'fridge/map',
     component: FridgeMapComponent,
+  }, 
+
+/***** 
+************************** ITEM
+*****/ 
+  {
+    path: 'item/add',
+    component: AddItemComponent,
   }, 
 
 /***** 
